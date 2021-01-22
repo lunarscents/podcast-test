@@ -21,6 +21,7 @@ import { AuthModule } from "./auth/auth.module";
       entities: [Podcast, Episode, User, Review]
     }),
     GraphQLModule.forRoot({
+      playground: process.env.NODE_ENV !== 'production',
       autoSchemaFile: true,
       context: ({ req }) => {
         return { user: req["user"] };
